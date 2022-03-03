@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XE TANK</title>
+    <link rel="stylesheet" href="BaiTap.css">
+</head>
+<body>
+<div id="img">
+    <img id="tank" src="./images/Screenshot (255).png">
+</div>
+<div id="button">
+    <button id="right" class="btn" type="button" name="right" onclick="oneRight()">&#8592;</button>
+    <button id="left" class="btn" type="button" name="left" onclick="oneLeft()">&#8594;</button>
+    <button id="down" class="btn" type="button" name="down" onclick="oneDown()">&#8595;</button>
+    <button id="up" class="btn" type="button" onclick="oneUp()">&#8593;</button>
+</div>
+</body>
+</html>
+<script>
+    let tank = document.getElementById('tank');
+    function suKien(){
+        tank.style.position = '19px';
+        tank.style.top = '0px'
+        tank.style.left = '0px'
+    }
+    suKien();
+    function oneLeft(){
+        tank.style.left = parseInt(tank.style.left) + 10 + 'px';
+    }
+    function oneRight(){
+        tank.style.left = parseInt(tank.style.left) - 10 + 'px';
+    }
+    function oneDown(){
+        tank.style.top = parseInt(tank.style.top) + 10 + 'px';
+    }
+    function oneUp(){
+        tank.style.top = parseInt(tank.style.top) - 10 + 'px';
+    }
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                oneRight();
+                break;
+            case 38:
+                oneUp();
+                break;
+            case 39:
+                oneLeft();
+                break;
+            case 40:
+                oneDown();
+                break;
+        }
+    }
+    window.addEventListener('keydown', moveSelection);
+</script>
